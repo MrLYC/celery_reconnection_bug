@@ -7,7 +7,7 @@ ENV PYTHONUNBUFFERED 1
 # Set work directory
 WORKDIR /srv
 
-RUN pip install --upgrade pip
+RUN pip install --upgrade pip -i https://mirrors.aliyun.com/pypi/simple/
 RUN apk add \
     python3-dev \
     file \
@@ -29,7 +29,7 @@ RUN apk add \
 # Install dependencies
 COPY . /srv/
 COPY requirements.txt /srv/requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
 
 # Copy project
 WORKDIR /srv/sample
